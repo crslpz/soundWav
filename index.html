@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="./src/styles/reset.css" />
     <link rel="stylesheet" href="./dist/main.css" />
     <title>soundWav</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 
 <body class="full-page">
@@ -23,11 +25,23 @@
         </div>
     </header>
     <div class="mixer">
-        <button id= 'sample1'>Sample One</button>
-        <button id= 'sample2'>Sample Two</button>
-        <button id= 'sample3'>Sample Three</button>
-        <button id= 'sample4'>Sample Four</button>
-        <button id= 'sample5'>Sample Five</button>
+        <div id='sample-control-panel'>
+            <img src="./assets/images/play.png">
+            <!-- <img src="./assets/images/pause.png"> -->
+            <div class='samples'>
+                <button id= 'sample1'>Sample One</button>
+                <button id= 'sample2'>Sample Two</button>
+                <button id= 'sample3'>Sample Three</button>
+                <button id= 'sample4'>Sample Four</button>
+                <button id= 'sample5'>Sample Five</button>
+            </div>
+        </div>
+        <div class='sequencer'>
+
+        </div>
+        <div class= "percussion-selector">
+
+        </div>
     </div>
     
     <script src="./dist/main.js"></script>

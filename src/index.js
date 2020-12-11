@@ -7,6 +7,7 @@ let toggle = false;
 function playStop(audio, toggle) {
     if (toggle){
         audio.start();
+        // audio.playbackRate = 0.25;
         audio.loop = true;
     }else { 
         audio.stop()
@@ -36,4 +37,5 @@ document.querySelector("#sample4").addEventListener("click", () =>{
 document.querySelector("#sample5").addEventListener("click", () =>{
     !toggle ? toggle = true : toggle = false;
     playStop(sample5, toggle)});
+
 
