@@ -2,9 +2,13 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
 
-let toggle = false;
+let vol = new Tone.Volume(-20).toDestination();
 
+// vol.volume.value = -20
+
+let toggle = false;
 function playStop(audio, toggle) {
+    audio.connect(vol)
     if (toggle) {
         audio.start();
         // audio.playbackRate = 0.25;
@@ -12,6 +16,19 @@ function playStop(audio, toggle) {
     } else {
         audio.stop()
     }
+}
+
+function volume(volVal){
+    // let slider = document.getElementById('sequencerVol');
+    vol.volume.value = Number(volVal);
+    if (Number(volVal) === -60){
+        volume.mute = true
+    } else{
+        volume.mute = false
+    }
+    console.log("you hit this", volVal, volume.mute);
+        // audio.volume = slider.value;
+        // const vol  = new Tone.Volume()
 }
 
 function sequencer() {
@@ -44,6 +61,8 @@ function sequencer() {
             snare1.start();
         }
         index++;
+        // let sliderVal = document.getElementById('sequencerVol').value;
+        // console.log(sliderVal);
     }
 }
 //SAMPLES
@@ -77,8 +96,13 @@ document.querySelector("#sample5").addEventListener("click", () => {
     playStop(sample5, toggle)
 });
 // document.querySelector('.play-pause').addEventListener("click", () =>{
-//     sequencer();
-//
+//     sequencer()
+// });
+document.querySelector("#sequencerVol").addEventListener('change', (e)=>{
+    debugger;
+    volume(e.currentTarget.value);
+})
+
 // end of sample query selectors
 
     sequencer();

@@ -28,9 +28,11 @@
         <div id='sample-control-panel'>
             <div class= "volume">
                 <input type= 'range'
-                    min = '0'
-                    max = '100'
-                    value = '75'
+                    min = '-60'
+                    max = '0' 
+                    value = '-20'
+                    class = 'slider'
+                    id = 'sequencerVol'
                 >    
             </div>
             <img src="./assets/images/play.png" 
@@ -106,6 +108,15 @@
     </div>
     
     <script src="./dist/main.js"></script>
+    <!-- <script>
+        let slider = document.getElementById('sequencerVol');
+
+        slider.onchange = function () {
+
+            console.log(slider.value);
+            // audio.volume = slider.value;
+        }
+    </script> -->
 </body>
 
 </html> 
