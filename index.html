@@ -18,15 +18,23 @@
             <img src = './assets/images/soundwav.png'>
         </div>
         <div class="action-buttons">
-            <img src="./assets/images/githubfancy.png">
-            <img src="./assets/images/linkedin.png">
-            <img src="./assets/images/selfpage.png">
+            <a href='https://github.com/crslpz/soundWav'><img src="./assets/images/githubfancy.png"></a>
+            <a href= 'https://www.linkedin.com/in/chris-lopez-67aa27201/'><img src="./assets/images/linkedin.png"></a>
+            <a href='https://crslpz.github.io/'><img src="./assets/images/selfpage.png"></a>
             <img src="./assets/images/info.png">
         </div>
     </header>
     <div class="mixer">
         <div id='sample-control-panel'>
-            <img src="./assets/images/play.png">
+            <div class= "volume">
+                <input type= 'range'
+                    min = '0'
+                    max = '100'
+                    value = '75'
+                >    
+            </div>
+            <img src="./assets/images/play.png" 
+            class= "play-pause">
             <!-- <img src="./assets/images/pause.png"> -->
             <div class='samples'>
                 <button id= 'sample1'>Sample One</button>
@@ -40,11 +48,64 @@
 
         </div>
         <div class= "percussion-selector">
-
+            <div class="kick">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+            </div>
+            <div class="snare">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+            </div>
+            <div class="hat">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+            </div> 
         </div>
     </div>
     
     <script src="./dist/main.js"></script>
 </body>
 
-</html>
+</html> 

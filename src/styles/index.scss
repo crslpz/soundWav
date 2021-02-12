@@ -4,7 +4,6 @@
 
 
 .logo img {
-   
     height:60px;
     width: 300px;
 }
@@ -18,6 +17,7 @@
 }
 
 .action-buttons img{
+    margin-top: 15px;
     height: 30px;
     width: 30px;
 }
@@ -71,6 +71,10 @@
 }
 .percussion-selector{
     height:360px;
-    width:10%;
-    color: rgba($color: #000000, $alpha: 1.0);
+    width:100%;
+    background-color: rgba($color: #000000, $alpha: 1.0);
+}
+
+.hat input{
+    background:yellow;
 }
