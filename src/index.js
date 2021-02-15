@@ -14,8 +14,55 @@ let sample2;
 let sample3;
 let sample4;
 let sample5;
-let ctx = new Tone.Context(AudioContext);
+// let ctx = new Tone.Context(AudioContext);
+// let ctx = new Tone.Context(new AudioContext());
+let ctx; 
 
+function sequencer(toggle) {
+    //Index - will be used to iterate through inputs
+    let index = 0;
+    if (toggle) {
+        Tone.Transport.scheduleRepeat(repeat, '4n')
+        Tone.Transport.start();
+        function repeat() {
+            debugger
+            let step = index % 16;
+            let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
+            let snareInputs = document.querySelector(`.snare input:nth-child(${step + 1})`);
+            let hatInputs = document.querySelector(`.hat input:nth-child(${step + 1})`);
+            let sampleSelect1 = document.querySelector(`.samples input:nth-child(${step + 1})`)
+            if (hatInputs.checked) {
+                debugger
+                hat1.start();
+            }
+            if (kickInputs.checked) {
+                debugger
+                kick1.start();
+            }
+            if (snareInputs.checked) {
+                debugger
+                snare1.start();
+            }
+            if (sampleSelect1.checked) {
+                debugger
+                sample1.start();
+                console.log('melody should play')
+            }
+
+            // document.querySelector("#sample5").addEventListener("check",()=>{
+            //     sample5.start();
+            //     console.log('hit it')
+            // }) 
+            index++;
+            // let sliderVal = document.getElementById('sequencerVol').value;
+            // console.log(sliderVal);
+        }
+    }
+}
+
+
+
+// let ctx = new AudioContext();
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
@@ -49,15 +96,24 @@ document.addEventListener("DOMContentLoaded", () => {
     //     // gatherAllAudio(sample1);
     //     sequencer();
     // })
+
+    ctx = new Tone.Context(new AudioContext());
+
     document.querySelector('.play-pause').addEventListener("click", () => {
-        debugger
+        // debugger
         // await Tone.start();
+        Tone.start();
+        // debugger
+        // sample1.start();
         sequencer(true)
-        if (ctx.state === 'suspended'){
-            ctx
-            console.log(ctx.state, Tone.context)
-            debugger
-        }
+
+        // checkBoxes()
+
+        // if (ctx.state === 'suspended'){
+        //     ctx.resume()
+        //     console.log(ctx.state)
+        //     debugger
+        // }
     })
 });
 
@@ -73,57 +129,7 @@ function gatherAllAudio(audio) {
     // });
 }
 
-function sequencer(toggle) {
-    debugger
-    //Index - will be used to iterate through inputs
-    let index = 0;
-    if (toggle){
-        // if (ctx.state === 'suspended') {
-        //     ctx.resume()
-        //     console.log(ctx.state)
-        //     debugger
-        // }
-        debugger
-        Tone.Transport.scheduleRepeat(repeat, '4n')
-        Tone.Transport.start();
 
-        function repeat(){
-            let step = index % 16;
-            let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
-            let snareInputs = document.querySelector(`.snare input:nth-child(${step + 1})`);
-            let hatInputs = document.querySelector(`.hat input:nth-child(${step + 1})`);
-            let sampleSelect1 = document.querySelector(`.samples input:nth-child(${step+1})`)
-            // Tone.Transport.scheduleRepeat(repeat, '4n')
-            // Tone.Transport.start();
-            // audioArr.forEach(soundByte => {
-            //     playAudio(soundByte)
-            // });
-
-            if (hatInputs.checked) {
-                // hat1.start();
-                hat1.start();
-            }
-            if (kickInputs.checked) {
-                kick1.start();
-            }
-            if (snareInputs.checked) {
-                snare1.start();
-            }
-            if (sampleSelect1.checked){
-                sample1.start();
-                console.log('melody should play')
-            }
-
-            // document.querySelector("#sample5").addEventListener("check",()=>{
-            //     sample5.start();
-            //     console.log('hit it')
-            // }) 
-            index++;
-            // let sliderVal = document.getElementById('sequencerVol').value;
-            // console.log(sliderVal);
-        }
-    }
-}
 
 
 
