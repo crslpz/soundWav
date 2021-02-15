@@ -3,16 +3,16 @@
 
 // // vol.volume.value = -20
 // document.addEventListener("DOMContentLoaded", () => {
-//     const sampleOne = document.getElementById('sample1');
+//     const sampleOne = document.getElementById('drill');
 //     sampleOne.addEventListener('click', () =>{
-//         playStop(sample1, true);
+//         playStop(drill, true);
 //         sequencer();
 //     })
 //     // document.querySelector('.play-pause').addEventListener("click", () =>{
 // //     sequencer()
 // // });
 // })
-// const sample1 = new Tone.Player("../assets/sounds/samples/sample1.wav").toDestination();
+// const drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
 
 // let toggle = false;
 // function playStop(audio, toggle) {
@@ -52,11 +52,11 @@
 //     const snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
 //     //end of Percussion samples
 //     //SAMPLES
-//     // const sample1 = new Tone.Player("../assets/sounds/samples/sample1.wav").toDestination();
-//     const sample2 = new Tone.Player("../assets/sounds/samples/sample2.wav").toDestination();
-//     const sample3 = new Tone.Player("../assets/sounds/samples/sample3.wav").toDestination();
-//     const sample4 = new Tone.Player("../assets/sounds/samples/sample4.wav").toDestination();
-//     const sample5 = new Tone.Player("../assets/sounds/samples/sample5.wav").toDestination();
+//     // const drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+//     const hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+//     const rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+//     const reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+//     const rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
 //     // End of melody samples
 //    Tone.Transport.scheduleRepeat(repeat, '4n')
 //    Tone.Transport.start();
@@ -77,11 +77,11 @@
 //             snare1.start();
 //         }
 //         // if (sampleSelect1.clicked){
-//         //     sample1.start();
+//         //     drill.start();
 //         //     console.log('melody should play')
 //         // }
-//         // document.querySelector("#sample5").addEventListener("check",()=>{
-//         //     sample5.start();
+//         // document.querySelector("#rnb").addEventListener("check",()=>{
+//         //     rnb.start();
 //         //     console.log('hit it')
 //         // }) 
 //         index++;
@@ -91,27 +91,27 @@
 // }
 
 // // These query Selectors are responsible for choosing which sample is chosen when the corresponding button is pressed.
-// // document.querySelector("#sample1").addEventListener("click", () => {
+// // document.querySelector("#drill").addEventListener("click", () => {
 // //     !toggle ? toggle = true : toggle = false;
 // //     console.log('melody')
-// //     playStop(sample1, toggle)
+// //     playStop(drill, toggle)
 // // });
 
-// // document.querySelector("#sample2").addEventListener("click", () => {
+// // document.querySelector("#hiphop").addEventListener("click", () => {
 // //     !toggle ? toggle = true : toggle = false;
-// //     playStop(sample2, toggle)
+// //     playStop(hiphop, toggle)
 // // });
-// // document.querySelector("#sample3").addEventListener("click", () => {
+// // document.querySelector("#rap").addEventListener("click", () => {
 // //     !toggle ? toggle = true : toggle = false;
-// //     playStop(sample3, toggle)
+// //     playStop(rap, toggle)
 // // });
-// // document.querySelector("#sample4").addEventListener("click", () => {
+// // document.querySelector("#reggaeton").addEventListener("click", () => {
 // //     !toggle ? toggle = true : toggle = false;
-// //     playStop(sample4, toggle)
+// //     playStop(reggaeton, toggle)
 // // });
-// // document.querySelector("#sample5").addEventListener("click", () => {
+// // document.querySelector("#rnb").addEventListener("click", () => {
 // //     !toggle ? toggle = true : toggle = false;
-// //     playStop(sample5, toggle)
+// //     playStop(rnb, toggle)
 // // });
 
 
@@ -149,25 +149,25 @@ document.addEventListener("DOMContentLoaded", () => {
     //end of Percussion samples
 
     //SAMPLES
-    const sample1 = new Tone.Player("../assets/sounds/samples/sample1.wav").toDestination();
-    const sample2 = new Tone.Player("../assets/sounds/samples/sample2.wav").toDestination();
-    const sample3 = new Tone.Player("../assets/sounds/samples/sample3.wav").toDestination();
-    const sample4 = new Tone.Player("../assets/sounds/samples/sample4.wav").toDestination();
-    const sample5 = new Tone.Player("../assets/sounds/samples/sample5.wav").toDestination();
+    const drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+    const hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+    const rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+    const reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+    const rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
 
     // These will find the radio and check boxes the user selected in the sequencer.
-    const sampleOne = document.getElementById('sample1');
-    const sampleTwo = document.getElementById('sample2')
-    const sampleThree = document.getElementById('sample3')
-    const sampleFour = document.getElementById('sample4')
-    const sampleFive = document.getElementById('sample5')
+    const sampleOne = document.getElementById('drill');
+    const sampleTwo = document.getElementById('hiphop')
+    const sampleThree = document.getElementById('rap')
+    const sampleFour = document.getElementById('reggaeton')
+    const sampleFive = document.getElementById('rnb')
     // End of document culling
 
     //This will add event listeners to the found elements so that when the radio buttons are pressed they will play audio.
     sampleOne.addEventListener('click', () => {
-        // playStop(sample1, true);
-        gatherAllAudio(sample1);
+        // playStop(drill, true);
+        gatherAllAudio(drill);
 
     })
 });
@@ -208,15 +208,6 @@ function repeat() {
 
         }
     });
-
-    // if (sampleSelect1.clicked){
-    //     sample1.start();
-    //     console.log('melody should play')
-    // }
-    // document.querySelector("#sample5").addEventListener("check",()=>{
-    //     sample5.start();
-    //     console.log('hit it')
-    // }) 
     index++;
     // let sliderVal = document.getElementById('sequencerVol').value;
     // console.log(sliderVal);

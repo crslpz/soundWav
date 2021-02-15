@@ -1,19 +1,7 @@
 // src/index.js
 import "./styles/index.scss";
 import * as Tone from "tone";
-
-
-let kick1;
-let kick2;
-let hat1;
-let hat2;
-let snare1;
-let snare2;
-let sample1;
-let sample2;
-let sample3;
-let sample4;
-let sample5;
+let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
 // let ctx = new Tone.Context(AudioContext);
 // let ctx = new Tone.Context(new AudioContext());
 let ctx; 
@@ -25,44 +13,47 @@ function sequencer(toggle) {
         Tone.Transport.scheduleRepeat(repeat, '4n')
         Tone.Transport.start();
         function repeat() {
+            console.log(Tone.Transport.bpm.value)
             debugger
-            let step = index % 16;
+            let step = index % 32;
             let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
             let snareInputs = document.querySelector(`.snare input:nth-child(${step + 1})`);
             let hatInputs = document.querySelector(`.hat input:nth-child(${step + 1})`);
-            let sampleSelect1 = document.querySelector(`.samples input:nth-child(${step + 1})`)
+            let sampleSelect1 = document.querySelector(`.samples input:nth-child(1)`)
+            let sampleSelect2 = document.querySelector('.samples input:nth-child(2)')
+            let sampleSelect3 = document.querySelector('.samples input:nth-child(3)')
+            let sampleSelect4 = document.querySelector('.samples input:nth-child(4)')
+            let sampleSelect5 = document.querySelector('.samples input:nth-child(5)')
             if (hatInputs.checked) {
-                debugger
                 hat1.start();
             }
             if (kickInputs.checked) {
-                debugger
                 kick1.start();
             }
             if (snareInputs.checked) {
-                debugger
                 snare1.start();
             }
-            if (sampleSelect1.checked) {
-                debugger
-                sample1.start();
-                console.log('melody should play')
+            if ((step === 0) && sampleSelect1.checked && !hiphop.checked && !rap.checked && !reggaeton.checked && !rnb.checked) {
+                drill.start();
             }
-
-            // document.querySelector("#sample5").addEventListener("check",()=>{
-            //     sample5.start();
-            //     console.log('hit it')
-            // }) 
+            if ((step === 0) && sampleSelect2.checked && !drill.checked && !rap.checked && !reggaeton.checked && !rnb.checked) {
+                hiphop.start();
+            }
+            if ((step === 0) && sampleSelect3.checked && !hiphop.checked && !drill.checked && !reggaeton.checked && !rnb.checked) {
+                rap.start();
+            }
+            if ((step === 0) && sampleSelect4.checked && !hiphop.checked && !rap.checked && !drill.checked && !rnb.checked) {
+                reggaeton.start();
+            }
+            if ((step === 0) && sampleSelect5.checked && !hiphop.checked && !rap.checked && !reggaeton.checked && !drill.checked) {
+                rnb.start();
+            }
             index++;
             // let sliderVal = document.getElementById('sequencerVol').value;
             // console.log(sliderVal);
         }
     }
 }
-
-
-
-// let ctx = new AudioContext();
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
@@ -75,68 +66,34 @@ document.addEventListener("DOMContentLoaded", () => {
     //end of Percussion samples
 
     //SAMPLES
-     sample1 = new Tone.Player("../assets/sounds/samples/sample1.wav").toDestination();
-     sample2 = new Tone.Player("../assets/sounds/samples/sample2.wav").toDestination();
-     sample3 = new Tone.Player("../assets/sounds/samples/sample3.wav").toDestination();
-     sample4 = new Tone.Player("../assets/sounds/samples/sample4.wav").toDestination();
-     sample5 = new Tone.Player("../assets/sounds/samples/sample5.wav").toDestination();
+     drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+     reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+     rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
 
     // These will find the radio and check boxes the user selected in the sequencer.
-    const sampleOne = document.getElementById('sample1');
-    const sampleTwo = document.getElementById('sample2')
-    const sampleThree = document.getElementById('sample3')
-    const sampleFour = document.getElementById('sample4')
-    const sampleFive = document.getElementById('sample5')
+    const sampleOne = document.getElementById('drill');
+    const sampleTwo = document.getElementById('hiphop')
+    const sampleThree = document.getElementById('rap')
+    const sampleFour = document.getElementById('reggaeton')
+    const sampleFive = document.getElementById('rnb')
     // End of document culling
 
-    //This will add event listeners to the found elements so that when the radio buttons are pressed they will play audio.
-    // sampleOne.addEventListener('click', () => {
-    //     // playStop(sample1, true);
-    //     // gatherAllAudio(sample1);
-    //     sequencer();
-    // })
-
     ctx = new Tone.Context(new AudioContext());
-
+    //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("click", () => {
-        // debugger
-        // await Tone.start();
+        if (Tone.context.state !== 'running'){
+            console.log('this was hit', Tone.context.state)
+            Tone.context.resume();
+        }
         Tone.start();
-        // debugger
-        // sample1.start();
         sequencer(true)
-
-        // checkBoxes()
-
-        // if (ctx.state === 'suspended'){
-        //     ctx.resume()
-        //     console.log(ctx.state)
-        //     debugger
-        // }
     })
 });
 
-function gatherAllAudio(audio) {
-    let audioArr = [audio];
 
-    // document.querySelector('.play-pause').addEventListener("click", () => {
-    //     // Tone.Transport.scheduleRepeat(repeat, '4n')
-    //     // Tone.Transport.start();
-    //     // audioArr.forEach(soundByte => {
-    //     //     playAudio(soundByte)
-    //     // });
-    // });
-}
-
-
-
-
-
-function playAudio(audio) {
-    audio.start();
-    console.log(Tone.Transport.bpm.value, "you hit this one")
-}
 
 function changeBPM() {
     Tone.Transport.bpm.rampTo(140, 10);
