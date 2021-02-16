@@ -2,19 +2,16 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
-// let ctx = new Tone.Context(AudioContext);
-// let ctx = new Tone.Context(new AudioContext());
+let toggle = false;
 let ctx; 
 
 function sequencer(toggle) {
-    //Index - will be used to iterate through inputs
+    //Index - will be used to iterate through each checkbox and will be used to calculate the step variable
     let index = 0;
     if (toggle) {
         Tone.Transport.scheduleRepeat(repeat, '4n')
         Tone.Transport.start();
         function repeat() {
-            console.log(Tone.Transport.bpm.value)
-            debugger
             let step = index % 32;
             let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
             let snareInputs = document.querySelector(`.snare input:nth-child(${step + 1})`);
@@ -26,33 +23,33 @@ function sequencer(toggle) {
             let sampleSelect5 = document.querySelector('.samples input:nth-child(5)')
             if (hatInputs.checked) {
                 hat1.start();
-            }
+            } 
             if (kickInputs.checked) {
                 kick1.start();
-            }
+            } 
             if (snareInputs.checked) {
                 snare1.start();
-            }
-            if ((step === 0) && sampleSelect1.checked && !hiphop.checked && !rap.checked && !reggaeton.checked && !rnb.checked) {
+            } 
+            if ((step === 0) && (sampleSelect1.checked) && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
                 drill.start();
-            }
-            if ((step === 0) && sampleSelect2.checked && !drill.checked && !rap.checked && !reggaeton.checked && !rnb.checked) {
+            } 
+            if ((step === 0) && sampleSelect2.checked && (!sampleSelect1.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
                 hiphop.start();
-            }
-            if ((step === 0) && sampleSelect3.checked && !hiphop.checked && !drill.checked && !reggaeton.checked && !rnb.checked) {
+            } 
+            if ((step === 0) && sampleSelect3.checked && (!sampleSelect2.checked) && (!sampleSelect1.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
                 rap.start();
-            }
-            if ((step === 0) && sampleSelect4.checked && !hiphop.checked && !rap.checked && !drill.checked && !rnb.checked) {
+            } 
+            if ((step === 0) && sampleSelect4.checked && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect1.checked) && (!sampleSelect5.checked)) {
                 reggaeton.start();
-            }
-            if ((step === 0) && sampleSelect5.checked && !hiphop.checked && !rap.checked && !reggaeton.checked && !drill.checked) {
+            } 
+            if ((step === 0) && sampleSelect5.checked && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect1.checked)) {
                 rnb.start();
-            }
+            } 
             index++;
             // let sliderVal = document.getElementById('sequencerVol').value;
             // console.log(sliderVal);
         }
-    }
+    } 
 }
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
@@ -72,24 +69,25 @@ document.addEventListener("DOMContentLoaded", () => {
      reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
      rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
-
-    // These will find the radio and check boxes the user selected in the sequencer.
-    const sampleOne = document.getElementById('drill');
-    const sampleTwo = document.getElementById('hiphop')
-    const sampleThree = document.getElementById('rap')
-    const sampleFour = document.getElementById('reggaeton')
-    const sampleFive = document.getElementById('rnb')
-    // End of document culling
-
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("click", () => {
-        if (Tone.context.state !== 'running'){
-            console.log('this was hit', Tone.context.state)
-            Tone.context.resume();
+        if (toggle === false){
+            toggle = true;
+            sequencer(toggle)
+        } else if (toggle = true){
+            toggle = false
+            Tone.Transport.stop();
+            Tone.Transport.cancel();
+            hat1.stop();
+            kick1.stop();
+            snare1.stop();
+            drill.stop(); 
+            hiphop.stop();
+            rap.stop();
+            reggaeton.stop();
+            rnb.stop();
         }
-        Tone.start();
-        sequencer(true)
     })
 });
 
