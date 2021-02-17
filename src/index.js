@@ -2,6 +2,7 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
+let volume = new Tone.Volume()
 let toggle = false;
 let ctx; 
 
@@ -11,6 +12,8 @@ function sequencer(toggle) {
     if (toggle) {
         Tone.Transport.scheduleRepeat(repeat, '4n')
         Tone.Transport.start();
+
+        //repeat function gets called once the event listener is triggered. Using scheduleRepeat iterates through the checkboxing using the 4/4 measure. If the input is selected, the audio will play.
         function repeat() {
             let step = index % 32;
             let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
@@ -46,21 +49,26 @@ function sequencer(toggle) {
                 rnb.start();
             } 
             index++;
-            // let sliderVal = document.getElementById('sequencerVol').value;
-            // console.log(sliderVal);
+            let sliderVal = document.getElementById('sequencerVol').value;
+            console.log(sliderVal);
         }
     } 
 }
+
+// DOMContentLoaded preps the sounds to be played when the site loads. There is an event listener set for when a user presses the play button on the sequencer.
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
     kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
     kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
-    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();
+    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
     hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
     snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
     snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
+
+    // play button event listeners
+    let img = document.querySelector('.play-pause')
 
     //SAMPLES
      drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
@@ -69,12 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
      reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
      rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
+
     ctx = new Tone.Context(new AudioContext());
+    
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("click", () => {
         if (toggle === false){
             toggle = true;
             sequencer(toggle)
+            img.src = "../assets/images/pause.png"
         } else if (toggle = true){
             toggle = false
             Tone.Transport.stop();
@@ -87,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rap.stop();
             reggaeton.stop();
             rnb.stop();
+            img.src = "../assets/images/play.png"
         }
     })
 });
