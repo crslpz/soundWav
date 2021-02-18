@@ -2,9 +2,10 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
-let volume = new Tone.Volume()
+let sliderVal = document.getElementById('sequencerVol').value
 let toggle = false;
 let ctx; 
+Tone.Destination.volume.value = sliderVal;
 
 function sequencer(toggle) {
     //Index - will be used to iterate through each checkbox and will be used to calculate the step variable
@@ -12,7 +13,6 @@ function sequencer(toggle) {
     if (toggle) {
         Tone.Transport.scheduleRepeat(repeat, '4n')
         Tone.Transport.start();
-
         //repeat function gets called once the event listener is triggered. Using scheduleRepeat iterates through the checkboxing using the 4/4 measure. If the input is selected, the audio will play.
         function repeat() {
             let step = index % 32;
@@ -49,8 +49,6 @@ function sequencer(toggle) {
                 rnb.start();
             } 
             index++;
-            let sliderVal = document.getElementById('sequencerVol').value;
-            console.log(sliderVal);
         }
     } 
 }
@@ -102,13 +100,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
+// // debugger
+document.getElementById('sequencerVol').addEventListener('change', () => {
+    sliderVal = document.getElementById('sequencerVol').value;
 
-
+    Tone.Destination.volume.value = sliderVal;
+    console.log(sliderVal)
+})
 
 function changeBPM() {
     Tone.Transport.bpm.rampTo(140, 10);
     console.log(Tone.Transport.bpm.value)
     debugger
 }
-
-// sequencer();
