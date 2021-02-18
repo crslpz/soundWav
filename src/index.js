@@ -69,11 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let img = document.querySelector('.play-pause')
 
     //SAMPLES
-    drill = new Tone.Player("assets/sounds/samples/Drill.wav").toDestination();
-     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
-     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
-     reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
-     rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
+    drill = new Tone.Player("../assets/sounds/samples/Drill.wav").toDestination();
+     hiphop = new Tone.Player("../assets/sounds/samples/Hiphop.wav").toDestination();
+     rap = new Tone.Player("../assets/sounds/samples/Rap.wav").toDestination();
+     reggaeton = new Tone.Player("../assets/sounds/samples/Reggaeton.wav").toDestination();
+     rnb = new Tone.Player("../assets/sounds/samples/RnB.wav").toDestination();
     // End of melody samples
 
     ctx = new Tone.Context(new AudioContext());
