@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //SAMPLES
      drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
      hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
-     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+    rap = new Tone.Player("assets/sounds/samples/Drill.wav").toDestination();
      reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
      rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
