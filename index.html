@@ -26,6 +26,17 @@
     </header>
     <div class="mixer">
         <div id='sample-control-panel'>
+            <img src="./assets/images/play.png" 
+            class= "play-pause">
+            <!-- <img src="./assets/images/pause.png"> -->
+            
+            <div class= 'samples'>
+                <input type= 'radio' id="drill" name= 'sample' >Drill</input>
+                <input type= 'radio' id="hiphop" name="sample">Hip Hop</input>
+                <input type= 'radio' id="rap" name="sample">Rap</input>
+                <input type= 'radio' id="reggaeton" name="sample">Reggaeton</input>
+                <input type= 'radio' id="rnb" name="sample">RnB</input>
+            </div>
             <div class= "volume">
                 <input type= 'range'
                     min = '-60'
@@ -34,17 +45,6 @@
                     class = 'slider'
                     id = 'sequencerVol'
                 >    
-            </div>
-            <img src="./assets/images/play.png" 
-            class= "play-pause">
-            <!-- <img src="./assets/images/pause.png"> -->
-
-            <div class= 'samples'>
-                <input type= 'radio' id="drill" name= 'sample' >Drill</input>
-                <input type= 'radio' id="hiphop" name="sample">Hip Hop</input>
-                <input type= 'radio' id="rap" name="sample">Rap</input>
-                <input type= 'radio' id="reggaeton" name="sample">Reggaeton</input>
-                <input type= 'radio' id="rnb" name="sample">RnB</input>
             </div>
         </div>
         <div class='sequencer'>
