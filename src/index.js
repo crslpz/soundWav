@@ -1,6 +1,8 @@
-// src/index.js
 import "./styles/index.scss";
 import * as Tone from "tone";
+import { buildAssetPath } from "./scripts/util"
+// import kick1Sound from "../assets/sounds/drums/kick1.wav"
+
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
 let sliderVal = document.getElementById('sequencerVol').value
 let toggle = false;
@@ -57,23 +59,25 @@ function sequencer(toggle) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
-    kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
-    kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
-    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
-    hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
-    snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
-    snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
+    // kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
+    // kick1 = new Tone.Player(buildAssetPath(kick1Sound)).toDestination();
+    kick1 = new Tone.Player(buildAssetPath("../assets/sounds/drums/kick1.wav")).toDestination();
+    // kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
+    // hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
+    // hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
+    // snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
+    // snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
 
     // play button event listeners
     let img = document.querySelector('.play-pause')
 
     //SAMPLES
-    drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
-     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
-     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
-     reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
-     rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
+    // drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+    //  hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+    //  rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+    //  reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+    //  rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
 
     ctx = new Tone.Context(new AudioContext());
@@ -88,14 +92,14 @@ document.addEventListener("DOMContentLoaded", () => {
             toggle = false
             Tone.Transport.stop();
             Tone.Transport.cancel();
-            hat1.stop();
+            // hat1.stop();
             kick1.stop();
-            snare1.stop();
-            drill.stop(); 
-            hiphop.stop();
-            rap.stop();
-            reggaeton.stop();
-            rnb.stop();
+            // snare1.stop();
+            // drill.stop(); 
+            // hiphop.stop();
+            // rap.stop();
+            // reggaeton.stop();
+            // rnb.stop();
             img.src = "../assets/images/play.png"
         }
     })
