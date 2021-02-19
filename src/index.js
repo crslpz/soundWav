@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
 
-    kick1 = new Tone.Player(buildAssetPath("../assets/sounds/drums/kick1.wav")).toDestination();
+    kick1 = new Tone.Player(buildAssetPath("../assets/sounds/drumss/kick1.wav")).toDestination();
     // kick1 = new Tone.Player(buildAssetPath(kick1Sound)).toDestination();
     // kick1 = new Tone.Player("../assets/sounds/drums/kick1.mp3").toDestination();
     // kick1 = new Tone.Player("https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/sound/kick1.mp3").toDestination();
