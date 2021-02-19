@@ -3,6 +3,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputDir = "./dist";
+const SRC = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
     entry: path.resolve(__dirname, "src", "index.js"),
@@ -17,7 +18,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/, // if we were using React.js, we would use \.jsx?$/
+                test: /\.js$/,  // if we were using React.js, we would use \.jsx?$/
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -73,6 +74,17 @@ module.exports = {
                     "postcss-loader",
                 ],
             },
+            {
+                test: /\.mp3$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                        name: '[path][name].[ext]?[contenthash]',
+                        },
+                    },
+                ],
+            }
         ],
     },
     plugins: [

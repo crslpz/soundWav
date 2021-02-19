@@ -2,6 +2,9 @@ import "./styles/index.scss";
 import * as Tone from "tone";
 import { buildAssetPath } from "./scripts/util"
 // import kick1Sound from "../assets/sounds/drums/kick1.wav"
+// import kick1Sound from "..dist/kick9.mp3"
+// import kick1Sound from "../assets/sounds/drums/kick9.mp3"
+// const kick1Sound = require("../assets/sounds/drums/kick1.mp3")
 
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
 let sliderVal = document.getElementById('sequencerVol').value
@@ -59,9 +62,12 @@ function sequencer(toggle) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
-    // kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
-    // kick1 = new Tone.Player(buildAssetPath(kick1Sound)).toDestination();
+
     kick1 = new Tone.Player(buildAssetPath("../assets/sounds/drums/kick1.wav")).toDestination();
+    // kick1 = new Tone.Player(buildAssetPath(kick1Sound)).toDestination();
+    // kick1 = new Tone.Player("../assets/sounds/drums/kick1.mp3").toDestination();
+    // kick1 = new Tone.Player("https://my-yelpy-seeds.s3-us-west-1.amazonaws.com/sound/kick1.mp3").toDestination();
+
     // kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
     // hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
     // hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
