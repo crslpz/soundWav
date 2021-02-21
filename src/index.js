@@ -78,15 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
-        debugger
         console.log(Tone.context.state)
         if (toggle === false){
-            debugger
             if (Tone.context.state !== 'running') {
                 console.log(Tone.context.state)
-                debugger
                 Tone.context.resume();
-                debugger
                 console.log(Tone.context.state)
             }
             toggle = true;
