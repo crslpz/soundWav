@@ -69,10 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
     snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
     snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
-
+    
     // play button event listeners
     let img = document.querySelector('.play-pause')
-
     //SAMPLES
     drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
      hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
