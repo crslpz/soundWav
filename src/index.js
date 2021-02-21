@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
-import { buildAssetPath } from "./scripts/util"
+// import { buildAssetPath } from "./scripts/util"
 // import kick1Sound from "../assets/sounds/drums/kick1.wav"
 // import kick1Sound from "..dist/kick9.mp3"
 // import kick1Sound from "../assets/sounds/drums/kick9.mp3"
