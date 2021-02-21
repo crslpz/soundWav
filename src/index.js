@@ -62,7 +62,6 @@ function sequencer(toggle) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
-
     kick1 = new Tone.Player("../assets/sounds/drums/kick1.mp3").toDestination();
     kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
     hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
@@ -84,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
-    document.querySelector('.play-pause').addEventListener("click", () => {
+    document.querySelector('.play-pause').addEventListener("mousedown", () => {
         if (Tone.context.state !== 'running') {
             Tone.context.resume();
         }
@@ -111,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // // debugger
 document.getElementById('sequencerVol').addEventListener('change', () => {
     sliderVal = document.getElementById('sequencerVol').value;
-
     Tone.Destination.volume.value = sliderVal;
     console.log(sliderVal)
 })
