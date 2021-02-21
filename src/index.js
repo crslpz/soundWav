@@ -83,9 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // End of melody samples
 
     ctx = new Tone.Context(new AudioContext());
-    
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("click", () => {
+        if (Tone.context.state !== 'running') {
+            Tone.context.resume();
+        }
         if (toggle === false){
             toggle = true;
             sequencer(toggle)
