@@ -62,14 +62,14 @@ function sequencer(toggle) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
-    kick1 = new Tone.Player("../assets/sounds/drums/kick1.mp3").toDestination();
+    kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
     kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
     hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
     hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
     snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
     snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
-    
+
     // play button event listeners
     let img = document.querySelector('.play-pause')
     //SAMPLES
@@ -83,10 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
-        if (Tone.context.state !== 'running') {
-            Tone.context.resume();
-        }
         if (toggle === false){
+            if (Tone.context.state !== 'running') {
+                Tone.context.resume();
+            }
             toggle = true;
             sequencer(toggle)
             img.src = "../assets/images/pause.png"
