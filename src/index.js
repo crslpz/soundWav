@@ -57,7 +57,7 @@ function sequencer(toggle) {
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
     // Percussion
-    kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
+    kick1 = new Tone.Player("https://github.com/crslpz/soundWav/assets/sounds/drums/kick1.wav").toDestination();
     kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
     hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
     hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
