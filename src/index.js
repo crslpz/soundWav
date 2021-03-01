@@ -1,6 +1,5 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
-
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
 let sliderVal = document.getElementById('sequencerVol').value
 let toggle = false;
@@ -49,6 +48,9 @@ function sequencer(toggle) {
                 rnb.start();
             } 
             index++;
+            Tone.Draw.schedule(()=>{
+
+            })
         }
     } 
 }

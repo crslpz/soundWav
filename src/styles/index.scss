@@ -30,24 +30,21 @@
     background-color: rgba($color: #8173d8, $alpha: 0.6);
     border: 2px solid white;
     border-radius: 6px;
-
 }
 
-.samples button{
+.samples input{
     margin-top: 9px;
     height: 20px;
-    width: 100px;
+    width: 20px;
     margin-bottom: 12px;
-    font-family: 'Russo One', sans-serif;
+    font-family: 'Apple Chancery', cursive;
     font-size: 12px;
-    background-color: rgb(5, 6, 34);
-    color: whitesmoke;
+    color:  rgb(10, 11, 63);
     border: 2px rgba($color: #e4e3e3, $alpha: 0.6);
 }
 
 #sample-control-panel{
     display: flex;
-    justify-content: space-between;
     height:40px;
     width: 100%;
     background-color: white;
@@ -60,7 +57,7 @@
     width: 90%;
     margin-left: 10%;
     border: 2px white;
-    background-color: rgba($color: #000000, $alpha: 0.3);
+    background-color: rgba($color: #060505, $alpha: 0.3);
 }
 
 .sample-control-panel, img{
@@ -69,12 +66,27 @@
     height: 30px;
     width: 30px;
 }
+
 .percussion-selector{
+    display:flex;
+    flex-direction: column;
     height:360px;
     width:100%;
-    background-color: rgba($color: #000000, $alpha: 1.0);
+    background-color: rgba($color: #f7f7f7, $alpha: 0.4);
+}
+.percussion-selector > div {
+    display:flex;
+    justify-content: space-evenly;
 }
 
-.hat input{
-    background:yellow
+.sequencer input {
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid red;
+    width: 2%;
+    height: 3vh;
+}
+
+.evens{
+
 }
