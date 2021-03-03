@@ -1,10 +1,10 @@
 .full-page{
-    background-color: rgb(5, 6, 34);
+    background-image: url('../../assets/images/spaceBG.jpg');
 }
 
 
 .logo img {
-    height:60px;
+    height:55px;
     width: 300px;
 }
 
@@ -13,7 +13,7 @@
     justify-content: space-between;
     height: 60px;
     width: 100%;
-    background: rgba($color: #000000, $alpha: 0.5);
+    background: rgba($color: #28083b, $alpha: 0.5);
 }
 
 .action-buttons img{
@@ -25,7 +25,7 @@
 .mixer{
     margin: auto;
     margin-top: 15%;
-    height: 400px;
+    height: 300px;
     width: 80%;
     background-color: rgba($color: #8173d8, $alpha: 0.6);
     border: 2px solid white;
@@ -53,7 +53,7 @@
 }
 
 .sequencer{
-    height: 360px;
+    height: 260px;
     width: 90%;
     margin-left: 10%;
     border: 2px white;
@@ -70,7 +70,7 @@
 .percussion-selector{
     display:flex;
     flex-direction: column;
-    height:360px;
+    height:260px;
     width:100%;
     background-color: rgba($color: #f7f7f7, $alpha: 0.4);
 }
@@ -81,12 +81,47 @@
 
 .sequencer input {
     appearance: none;
-    border-radius: 50%;
-    border: 1px solid red;
+    overflow: hidden;
     width: 2%;
     height: 3vh;
+    border-radius: 4px;
 }
 
-.evens{
+.sequencer input:hover {
+    animation: increase-checkboxes 0.5s ease-in-out both;
+}
 
+.sequencer input:checked {
+    animation: selected-input 0.4s ease-in-out both;
+}
+
+@keyframes increase-checkboxes {
+    to {
+        border: 5px solid blue;
+        width: 2.5%;
+        height: 3.5vh;
+    }
+}
+
+@keyframes selected-input{
+    from{
+        border: 5px solid blue;
+        width: 2.5%;
+        height: 3.5vh;
+    }
+    to {
+        width: 2%;
+        height: 3vh;
+        background: rgb(153,164,203);
+        background-image: url("../../assets/images/musicNote.png");
+        background-repeat: no-repeat;
+    }
+}
+
+
+.evens{
+    background: red;
+}
+.odds{
+    background: blue;
 }
