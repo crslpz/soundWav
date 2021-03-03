@@ -2,7 +2,6 @@
     background-image: url('../../assets/images/spaceBG.jpg');
 }
 
-
 .logo img {
     height:55px;
     width: 300px;
@@ -23,6 +22,8 @@
 }
 
 .mixer{
+    display:flex;
+    flex-direction: column;
     margin: auto;
     margin-top: 15%;
     height: 300px;
@@ -30,6 +31,10 @@
     background-color: rgba($color: #8173d8, $alpha: 0.6);
     border: 2px solid white;
     border-radius: 6px;
+}
+
+.percussion-sound-selector{
+    margin-right: 8px;
 }
 
 .samples input{
@@ -53,9 +58,8 @@
 }
 
 .sequencer{
+    display: flex;
     height: 260px;
-    width: 90%;
-    margin-left: 10%;
     border: 2px white;
     background-color: rgba($color: #060505, $alpha: 0.3);
 }
@@ -68,14 +72,13 @@
 }
 
 .percussion-selector{
-    display:flex;
-    flex-direction: column;
     height:260px;
     width:100%;
-    background-color: rgba($color: #f7f7f7, $alpha: 0.4);
+    background-color: rgba($color: #f7f7f7, $alpha: 0.5);
 }
 .percussion-selector > div {
     display:flex;
+    margin-top: .2vh;
     justify-content: space-evenly;
 }
 
@@ -97,7 +100,7 @@
 
 @keyframes increase-checkboxes {
     to {
-        border: 5px solid blue;
+        border: 2px solid white;
         width: 2.5%;
         height: 3.5vh;
     }
@@ -105,7 +108,7 @@
 
 @keyframes selected-input{
     from{
-        border: 5px solid blue;
+        border: 2px solid white;
         width: 2.5%;
         height: 3.5vh;
     }
@@ -115,13 +118,19 @@
         background: rgb(153,164,203);
         background-image: url("../../assets/images/musicNote.png");
         background-repeat: no-repeat;
+        background-position: center;
     }
 }
-
 
 .evens{
     background: red;
 }
 .odds{
     background: blue;
+}
+
+.sequencer > *{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
