@@ -1,9 +1,11 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
-
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb;
 let sliderVal = document.getElementById('sequencerVol').value
 let toggle = false;
+let kick1Toggle = true;
+let snare1Toggle = true;
+let hh1Toggle = true;
 let ctx; 
 Tone.Destination.volume.value = sliderVal;
 
@@ -25,13 +27,25 @@ function sequencer(toggle) {
             let sampleSelect4 = document.querySelector('.samples input:nth-child(4)')
             let sampleSelect5 = document.querySelector('.samples input:nth-child(5)')
             if (hatInputs.checked) {
-                hat1.start();
+                if (hh1Toggle === true){
+                    hat1.start();
+                } else {
+                    hat2.start();
+                }
             } 
             if (kickInputs.checked) {
-                kick1.start();
+                if (kick1Toggle === true){
+                    kick1.start();
+                } else {
+                    kick2.start();
+                }
             } 
             if (snareInputs.checked) {
-                snare1.start();
+                if (snare1Toggle === true){
+                    snare1.start();
+                } else {
+                    snare2.start();
+                }
             } 
             if ((step === 0) && (sampleSelect1.checked) && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
                 drill.start();
@@ -49,6 +63,9 @@ function sequencer(toggle) {
                 rnb.start();
             } 
             index++;
+            Tone.Draw.schedule(()=>{
+
+            })
         }
     } 
 }
@@ -93,8 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
             Tone.Transport.stop();
             Tone.Transport.cancel();
             hat1.stop();
+            hat2.stop();
             kick1.stop();
+            kick2.stop();
             snare1.stop();
+            snare2.stop();
             drill.stop(); 
             hiphop.stop();
             rap.stop();
@@ -110,6 +130,30 @@ document.getElementById('sequencerVol').addEventListener('change', () => {
     Tone.Destination.volume.value = sliderVal;
     console.log(sliderVal)
 })
+
+// These event listeners are responsible for the switching the sound source of the percussion. There are 2 options for each drum
+document.querySelector('.kick-img').addEventListener('click', () =>{
+    if (kick1Toggle === true){
+        kick1Toggle = false
+    } else {
+        kick1Toggle = true;
+    }
+})
+document.querySelector('.snare-img').addEventListener('click', () =>{
+    if (snare1Toggle === true){
+        snare1Toggle = false
+    } else {
+        snare1Toggle = true;
+    }
+})
+document.querySelector('.hh-img').addEventListener('click', () =>{
+    if (hh1Toggle === true){
+        hh1Toggle = false
+    } else {
+        hh1Toggle = true;
+    }
+})
+// End of percussion sound eventlisteners 
 
 function changeBPM() {
     Tone.Transport.bpm.rampTo(140, 10);
