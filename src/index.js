@@ -6,6 +6,9 @@ let toggle = false;
 let kick1Toggle = true;
 let snare1Toggle = true;
 let hh1Toggle = true;
+let hhImg = document.querySelector('.hh-img');
+let snareImg = document.querySelector('.snare-img');
+let kickImg = document.querySelector('.kick-img');
 let ctx; 
 Tone.Destination.volume.value = sliderVal;
 
@@ -63,9 +66,6 @@ function sequencer(toggle) {
                 rnb.start();
             } 
             index++;
-            Tone.Draw.schedule(()=>{
-
-            })
         }
     } 
 }
@@ -131,26 +131,32 @@ document.getElementById('sequencerVol').addEventListener('change', () => {
     console.log(sliderVal)
 })
 
-// These event listeners are responsible for the switching the sound source of the percussion. There are 2 options for each drum
+// These event listeners are responsible for the switching the sound source and img  of the percussion. 
 document.querySelector('.kick-img').addEventListener('click', () =>{
     if (kick1Toggle === true){
         kick1Toggle = false
+        kickImg.src = '../assets/images/kickSelected.png'
     } else {
         kick1Toggle = true;
+        kickImg.src = '../assets/images/kickDrumImg.png'
     }
 })
 document.querySelector('.snare-img').addEventListener('click', () =>{
     if (snare1Toggle === true){
         snare1Toggle = false
+        snareImg.src = '../assets/images/snareSelected.png'
     } else {
         snare1Toggle = true;
+        snareImg.src = '../assets/images/snareDrumingImg.png'
     }
 })
 document.querySelector('.hh-img').addEventListener('click', () =>{
     if (hh1Toggle === true){
         hh1Toggle = false
+        hhImg.src = '../assets/images/hhSelected.png'
     } else {
         hh1Toggle = true;
+        hhImg.src = '../assets/images/hhImg.png'
     }
 })
 // End of percussion sound eventlisteners 
