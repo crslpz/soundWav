@@ -1,10 +1,23 @@
 .full-page{
     background-image: url('../../assets/images/spaceBG.jpg');
+    background-repeat: no-repeat;
 }
 
 .logo img {
-    height:55px;
+    height:57px;
     width: 300px;
+}
+
+.play-pause{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30px;
+    height: 30px;
+}
+
+.reset-sequencer{
+    width: 30px;
+    height: 30px;
 }
 
 .nav-bar{
@@ -15,8 +28,12 @@
     background: rgba($color: #28083b, $alpha: 0.5);
 }
 
+.action-buttons {
+    margin-right: 15px;
+}
 .action-buttons img{
     margin-top: 15px;
+    margin-right: 5px;
     height: 30px;
     width: 30px;
 }
@@ -33,17 +50,8 @@
     border-radius: 6px;
 }
 
-.percussion-sound-selector{
-    margin-right: 8px;
-}
-
 .samples input{
-    margin-top: 9px;
-    height: 20px;
-    width: 20px;
-    margin-bottom: 12px;
     font-family: 'Apple Chancery', cursive;
-    font-size: 12px;
     color:  rgb(10, 11, 63);
     border: 2px rgba($color: #e4e3e3, $alpha: 0.6);
 }
@@ -51,10 +59,8 @@
 #sample-control-panel{
     display: flex;
     height:40px;
-    width: 100%;
     background-color: white;
-    border-bottom: 30px  black;
-    border: 1px;
+
 }
 
 .sequencer{
@@ -64,7 +70,7 @@
     background-color: rgba($color: #060505, $alpha: 0.3);
 }
 
-.sample-control-panel, img{
+.sample-control-panel > img{
     margin-left: 10px;
     margin-top: 4px;
     height: 30px;
@@ -115,7 +121,8 @@
     to {
         width: 2%;
         height: 3vh;
-        background: rgb(153,164,203);
+        border: 1px solid #070209;
+        background: #e8adfc;
         background-image: url("../../assets/images/musicNote.png");
         background-repeat: no-repeat;
         background-position: center;
@@ -123,10 +130,10 @@
 }
 
 .evens{
-    background: red;
+    background: #550015;
 }
 .odds{
-    background: blue;
+    background: #001f3d;
 }
 
 .sequencer > *{
@@ -135,6 +142,16 @@
     justify-content: space-around;
 }
 
-.percussion-sound-selector{
-margin-right: 8px;
+.kick-img{
+    width: 25px;
+    height: 25px;
+    margin-left: 2px;
+}
+
+.bmp-selector{
+    position: relative;
+}
+
+.bmp-selector select{
+    display: none;
 }
