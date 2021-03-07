@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
-let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb, keys1, keys2, keys3;
+let kick1, kick2, hat1, hat2, snare1, snare2, drill, drillChill, drillSlow, hiphop, hiphopChill, hiphopSlow, rap, rapChill, rapSlow, reggaeton, reggaetonChill, reggaetonSlow, rnb, rnbChill, rnbSlow, keys1, keys2, keys3;
 let sliderVal = document.getElementById('sequencerVol').value
 let bpmVal = document.getElementById('bpm-Val').value
 let toggle = false;
@@ -85,16 +85,40 @@ function sequencer(toggle) {
                 }
             } 
             if ((step === 0) && (sampleSelect1.checked) && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
-                drill.start();
+                if (Tone.Transport.bpm.value== 120){
+                    drill.start();
+                } else if (Tone.Transport.bpm.value == 100){
+                    drillChill.start();
+                }else{
+                    drillSlow.start();
+                }
             } 
             if ((step === 0) && sampleSelect2.checked && (!sampleSelect1.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
-                hiphop.start();
+                if (Tone.Transport.bpm.value == 120) {
+                    hiphop.start();
+                } else if (Tone.Transport.bpm.value == 100) {
+                    hiphopChill.start();
+                } else {
+                    hiphopSlow.start();
+                } 
             } 
             if ((step === 0) && sampleSelect3.checked && (!sampleSelect2.checked) && (!sampleSelect1.checked) && (!sampleSelect4.checked) && (!sampleSelect5.checked)) {
-                rap.start();
+                if (Tone.Transport.bpm.value == 120) {
+                    rap.start();
+                } else if (Tone.Transport.bpm.value == 100) {
+                    rapChill.start();
+                } else {
+                    rapSlow.start();
+                }
             } 
             if ((step === 0) && sampleSelect4.checked && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect1.checked) && (!sampleSelect5.checked)) {
-                reggaeton.start();
+                if (Tone.Transport.bpm.value == 120) {
+                    reggaeton.start();
+                } else if (Tone.Transport.bpm.value == 100) {
+                    reggaetonChill.start();
+                } else {
+                    reggaetonSlow.start();
+                }
             } 
             if ((step === 0) && sampleSelect5.checked && (!sampleSelect2.checked) && (!sampleSelect3.checked) && (!sampleSelect4.checked) && (!sampleSelect1.checked)) {
                 rnb.start();
@@ -124,10 +148,20 @@ function reset() {
     let img = document.querySelector('.play-pause')
     //SAMPLES
     drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+    drillChill = new Tone.Player("../assets/sounds/samples/drillChill.wav").toDestination();
+    drillSlow = new Tone.Player("../assets/sounds/samples/drillSlow.wav").toDestination();
     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+    hiphopChill = new Tone.Player("../assets/sounds/samples/hiphopChill.wav").toDestination();
+    hiphopSlow = new Tone.Player("../assets/sounds/samples/hiphopSlow.wav").toDestination();
     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+    rapChill = new Tone.Player("../assets/sounds/samples/rapChill.wav").toDestination();
+    rapSlow = new Tone.Player("../assets/sounds/samples/rapSlow.wav").toDestination();
     reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+    reggaetonChill = new Tone.Player("../assets/sounds/samples/reggaetonChill.wav").toDestination();
+    reggaetonSlow = new Tone.Player("../assets/sounds/samples/reggaetonSlow.wav").toDestination();
     rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
+    rnbChill = new Tone.Player("../assets/sounds/samples/rnbChill.wav").toDestination();
+    rnbSlow = new Tone.Player("../assets/sounds/samples/rnbSlow.wav").toDestination();
     // End of melody samples
 
     //piano key samples 
@@ -163,10 +197,20 @@ function reset() {
             snare1.stop();
             snare2.stop();
             drill.stop();
+            drillChill.stop();
+            drillSlow.stop();
             hiphop.stop();
+            hiphopChill.stop();
+            hiphopSlow.stop();
             rap.stop();
+            rapChill.stop();
+            rapSlow.stop();
             reggaeton.stop();
+            reggaetonChill.stop();
+            reggaetonSlow.stop();
             rnb.stop();
+            rnbChill.stop();
+            rnbSlow.stop();
             img.src = "../assets/images/play.png"
         }
     })
