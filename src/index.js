@@ -2,6 +2,7 @@ import "./styles/index.scss";
 import * as Tone from "tone";
 let kick1, kick2, hat1, hat2, snare1, snare2, drill, hiphop, rap, reggaeton, rnb, keys1, keys2, keys3;
 let sliderVal = document.getElementById('sequencerVol').value
+let bpmVal = document.getElementById('bpm-Val').value
 let toggle = false;
 let kick1Toggle = true;
 let snare1Toggle = true;
@@ -16,6 +17,9 @@ let sample4toggle = 0;
 let sample5toggle = 0;
 let ctx; 
 Tone.Destination.volume.value = sliderVal;
+Tone.Transport.bpm.value = bpmVal;
+console.log(Tone.Transport.bpm.value)
+// console.log(bpmVal)
 
 function sequencer(toggle) {
     //Index - will be used to iterate through each checkbox and will be used to calculate the step variable
@@ -103,10 +107,14 @@ function sequencer(toggle) {
 // DOMContentLoaded preps the sounds to be played when the site loads. There is an event listener set for when a user presses the play button on the sequencer.
 document.addEventListener("DOMContentLoaded", () => {
     // Tone.Transport.bpm.value = 80;
+    reset();
+});
+
+function reset() {
     // Percussion
     kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
     kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
-    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination();``
+    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination(); ``
     hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
     snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
     snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
@@ -116,21 +124,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let img = document.querySelector('.play-pause')
     //SAMPLES
     drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
-     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
-     rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
-     reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
-     rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
+    hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
+    rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
+    reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
+    rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
     // End of melody samples
 
+    //piano key samples 
     keys1 = new Tone.Player("../assets/sounds/samples/key1.wav").toDestination();
     keys2 = new Tone.Player("../assets/sounds/samples/key2.wav").toDestination();
     keys3 = new Tone.Player("../assets/sounds/samples/key3.wav").toDestination();
+    //
 
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
         console.log(Tone.context.state)
-        if (toggle === false){
+        if (toggle === false) {
             if (Tone.context.state !== 'running') {
                 console.log(Tone.context.state)
                 Tone.context.resume();
@@ -139,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             toggle = true;
             sequencer(toggle)
             img.src = "../assets/images/pause.png"
-        } else if (toggle = true){
+        } else if (toggle = true) {
             toggle = false
             Tone.Transport.stop();
             Tone.Transport.cancel();
@@ -152,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             kick2.stop();
             snare1.stop();
             snare2.stop();
-            drill.stop(); 
+            drill.stop();
             hiphop.stop();
             rap.stop();
             reggaeton.stop();
@@ -160,12 +170,18 @@ document.addEventListener("DOMContentLoaded", () => {
             img.src = "../assets/images/play.png"
         }
     })
-});
-// // debugger
+}
+
 document.getElementById('sequencerVol').addEventListener('change', () => {
     sliderVal = document.getElementById('sequencerVol').value;
     Tone.Destination.volume.value = sliderVal;
     console.log(sliderVal)
+})
+
+document.getElementById('bpm-Val').addEventListener('change', () =>{
+    bpmVal = document.getElementById('bpm-Val').value;
+    Tone.Transport.bpm.value = bpmVal;
+    console.log(Tone.Transport.bpm.value)
 })
 
 // These event listeners are responsible for the switching the sound source and img  of the percussion. 
@@ -178,6 +194,7 @@ document.querySelector('.kick-img').addEventListener('click', () =>{
         kickImg.src = '../assets/images/kickDrumImg.png'
     }
 })
+
 document.querySelector('.snare-img').addEventListener('click', () =>{
     if (snare1Toggle === true){
         snare1Toggle = false
@@ -187,6 +204,7 @@ document.querySelector('.snare-img').addEventListener('click', () =>{
         snareImg.src = '../assets/images/snareDrumImg.png'
     }
 })
+
 document.querySelector('.hh-img').addEventListener('click', () =>{
     if (hh1Toggle === true){
         hh1Toggle = false
@@ -198,7 +216,7 @@ document.querySelector('.hh-img').addEventListener('click', () =>{
 })
 // End of percussion sound eventlisteners 
 
-
+// These event listeners are responsible for deselecting the radio buttons of the samples.
 let sample1 = document.querySelector(`.samples input:nth-child(1)`)
 sample1.addEventListener('click', () =>{
     sample1toggle ++
@@ -245,8 +263,9 @@ sample5.addEventListener('click', () =>{
     }
 })
 
-function changeBPM() {
-    Tone.Transport.bpm.rampTo(140, 10);
-    console.log(Tone.Transport.bpm.value)
-    debugger
-}
+document.querySelector('.reset-sequencer').addEventListener('click', () =>{
+    reset();
+    console.log('you hit this')
+})
+// end of radio eventlisteners
+
