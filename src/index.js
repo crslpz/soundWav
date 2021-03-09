@@ -313,3 +313,6 @@ document.querySelector('.reset-sequencer').addEventListener('click', () =>{
 })
 // end of radio eventlisteners
 
+// document.querySelector('.samples input').addEventListener('click', () => {
+    
+// })

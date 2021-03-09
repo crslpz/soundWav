@@ -50,14 +50,10 @@
     border-radius: 6px;
 }
 
-.samples input{
-    font-family: 'Apple Chancery', cursive;
-    color:  rgb(10, 11, 63);
-    border: 2px rgba($color: #e4e3e3, $alpha: 0.6);
-}
-
 #sample-control-panel{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     height:40px;
     background-color: white;
 
@@ -104,6 +100,52 @@
     animation: selected-input 0.4s ease-in-out both;
 }
 
+.evens{
+    background: #550015;
+}
+.odds{
+    background: #001f3d;
+}
+
+.sequencer > *{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.kick-img{
+    width: 25px;
+    height: 25px;
+    margin-left: 2px;
+}
+
+.bpm-selector{
+    margin-left: 3px;
+}
+
+.samples{
+    font-family: 'brush script mt',cursive;
+    font-size: 28px;
+    color: blue;
+}
+
+a {
+    font-family: 'brush script mt',cursive;
+    font-size: 24px;
+    color: blue;
+}
+
+.samples input:hover {
+    animation: grow-button 0.4s ease-in-out both;
+}
+
+@keyframes grow-button {
+    to{
+        width: 18px;
+        height: 18px;
+    }
+}
+
 @keyframes increase-checkboxes {
     to {
         border: 2px solid white;
@@ -127,31 +169,4 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-}
-
-.evens{
-    background: #550015;
-}
-.odds{
-    background: #001f3d;
-}
-
-.sequencer > *{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.kick-img{
-    width: 25px;
-    height: 25px;
-    margin-left: 2px;
-}
-
-.bmp-selector{
-    position: relative;
-}
-
-.bmp-selector select{
-    display: none;
 }
