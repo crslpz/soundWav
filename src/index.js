@@ -182,7 +182,7 @@ function reset() {
             }
             toggle = true;
             sequencer(toggle)
-            img.src = "../assets/images/pause.png"
+            img.src = "https://crslpz.github.io/soundWav/assets/images/pause.png"
         } else if (toggle = true) {
             toggle = false
             Tone.Transport.stop();
