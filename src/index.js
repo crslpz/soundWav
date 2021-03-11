@@ -36,7 +36,6 @@ function sequencer(toggle) {
             let keys1Inputs = document.querySelector(`.keys1 input:nth-child(${step + 1})`);
             let keys2Inputs = document.querySelector(`.keys2 input:nth-child(${step + 1})`);
             let keys3Inputs = document.querySelector(`.keys3 input:nth-child(${step + 1})`);
-
             let sampleSelect1 = document.querySelector(`.samples input:nth-child(1)`)
             let sampleSelect2 = document.querySelector('.samples input:nth-child(2)')
             let sampleSelect3 = document.querySelector('.samples input:nth-child(3)')
@@ -147,7 +146,8 @@ function reset() {
     // play button event listeners
     let img = document.querySelector('.play-pause')
     //SAMPLES
-    drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+    // drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
+    drill = new Tone.Player("soundWav/assets/sounds/samples/drill.wav").toDestination();
     drillChill = new Tone.Player("../assets/sounds/samples/drillChill.wav").toDestination();
     drillSlow = new Tone.Player("../assets/sounds/samples/drillSlow.wav").toDestination();
     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
