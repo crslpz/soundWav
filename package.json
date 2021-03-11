@@ -48,6 +48,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "cors-anywhere": "^0.4.3",
     "tone": "^14.7.58"
   }
 }
