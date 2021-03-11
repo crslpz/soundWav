@@ -135,12 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function reset() {
     // Percussion
-    kick1 = new Tone.Player("../assets/sounds/drums/kick1.wav").toDestination();
-    kick2 = new Tone.Player("../assets/sounds/drums/kick2.wav").toDestination();
-    hat1 = new Tone.Player("../assets/sounds/drums/hat1.wav").toDestination(); ``
-    hat2 = new Tone.Player("../assets/sounds/drums/hat2.wav").toDestination();
-    snare1 = new Tone.Player("../assets/sounds/drums/snare1.wav").toDestination();
-    snare2 = new Tone.Player("../assets/sounds/drums/snare2.wav").toDestination();
+    kick1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/kick1.wav").toDestination();
+    kick2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/kick2.wav").toDestination();
+    hat1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/hat1.wav").toDestination(); ``
+    hat2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/hat2.wav").toDestination();
+    snare1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/snare1.wav").toDestination();
+    snare2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
 
     // play button event listeners
@@ -148,26 +148,26 @@ function reset() {
     //SAMPLES
     // drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
     drill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drill.wav").toDestination();
-    drillChill = new Tone.Player("../assets/sounds/samples/drillChill.wav").toDestination();
-    drillSlow = new Tone.Player("../assets/sounds/samples/drillSlow.wav").toDestination();
-    hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
-    hiphopChill = new Tone.Player("../assets/sounds/samples/hiphopChill.wav").toDestination();
-    hiphopSlow = new Tone.Player("../assets/sounds/samples/hiphopSlow.wav").toDestination();
-    rap = new Tone.Player("../assets/sounds/samples/rap.wav").toDestination();
-    rapChill = new Tone.Player("../assets/sounds/samples/rapChill.wav").toDestination();
-    rapSlow = new Tone.Player("../assets/sounds/samples/rapSlow.wav").toDestination();
-    reggaeton = new Tone.Player("../assets/sounds/samples/reggaeton.wav").toDestination();
-    reggaetonChill = new Tone.Player("../assets/sounds/samples/reggaetonChill.wav").toDestination();
-    reggaetonSlow = new Tone.Player("../assets/sounds/samples/reggaetonSlow.wav").toDestination();
-    rnb = new Tone.Player("../assets/sounds/samples/rnb.wav").toDestination();
-    rnbChill = new Tone.Player("../assets/sounds/samples/rnbChill.wav").toDestination();
-    rnbSlow = new Tone.Player("../assets/sounds/samples/rnbSlow.wav").toDestination();
+    drillChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drillChill.wav").toDestination();
+    drillSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drillSlow.wav").toDestination();
+    hiphop = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/hiphop.wav").toDestination();
+    hiphopChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/hiphopChill.wav").toDestination();
+    hiphopSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/hiphopSlow.wav").toDestination();
+    rap = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rap.wav").toDestination();
+    rapChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rapChill.wav").toDestination();
+    rapSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rapSlow.wav").toDestination();
+    reggaeton = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/reggaeton.wav").toDestination();
+    reggaetonChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/reggaetonChill.wav").toDestination();
+    reggaetonSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/reggaetonSlow.wav").toDestination();
+    rnb = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rnb.wav").toDestination();
+    rnbChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rnbChill.wav").toDestination();
+    rnbSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/rnbSlow.wav").toDestination();
     // End of melody samples
 
     //piano key samples 
-    keys1 = new Tone.Player("../assets/sounds/samples/key1.wav").toDestination();
-    keys2 = new Tone.Player("../assets/sounds/samples/key2.wav").toDestination();
-    keys3 = new Tone.Player("../assets/sounds/samples/key3.wav").toDestination();
+    keys1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key1.wav").toDestination();
+    keys2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key2.wav").toDestination();
+    keys3 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key3.wav").toDestination();
     //
 
     ctx = new Tone.Context(new AudioContext());
@@ -211,7 +211,7 @@ function reset() {
             rnb.stop();
             rnbChill.stop();
             rnbSlow.stop();
-            img.src = "../assets/images/play.png"
+            img.src = "https://crslpz.github.io/soundWav/assets/images/play.png"
         }
     })
 }
@@ -232,30 +232,30 @@ document.getElementById('bpm-Val').addEventListener('change', () =>{
 document.querySelector('.kick-img').addEventListener('click', () =>{
     if (kick1Toggle === true){
         kick1Toggle = false
-        kickImg.src = '../assets/images/kickSelected.png'
+        kickImg.src = 'https://crslpz.github.io/soundWav/assets/images/kickSelected.png'
     } else {
         kick1Toggle = true;
-        kickImg.src = '../assets/images/kickDrumImg.png'
+        kickImg.src = 'https://crslpz.github.io/soundWav/assets/images/kickDrumImg.png'
     }
 })
 
 document.querySelector('.snare-img').addEventListener('click', () =>{
     if (snare1Toggle === true){
         snare1Toggle = false
-        snareImg.src = '../assets/images/snareSelected.png'
+        snareImg.src = 'https://crslpz.github.io/soundWav/assets/images/snareSelected.png'
     } else {
         snare1Toggle = true;
-        snareImg.src = '../assets/images/snareDrumImg.png'
+        snareImg.src = 'https://crslpz.github.io/soundWav/assets/images/snareDrumImg.png'
     }
 })
 
 document.querySelector('.hh-img').addEventListener('click', () =>{
     if (hh1Toggle === true){
         hh1Toggle = false
-        hhImg.src = '../assets/images/hhSelected.png'
+        hhImg.src = 'https://crslpz.github.io/soundWav/assets/images/hhSelected.png'
     } else {
         hh1Toggle = true;
-        hhImg.src = '../assets/images/hhImg.png'
+        hhImg.src = 'https://crslpz.github.io/soundWav/assets/images/hhImg.png'
     }
 })
 // End of percussion sound eventlisteners 
