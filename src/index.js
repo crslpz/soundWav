@@ -147,7 +147,7 @@ function reset() {
     let img = document.querySelector('.play-pause')
     //SAMPLES
     // drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
-    drill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drill.wav").toDestination();
+    drill = new Tone.Player("https://crslpz.github.io/soundWav/raw/master/assets/sounds/samples/drill.wav").toDestination();
     drillChill = new Tone.Player("../assets/sounds/samples/drillChill.wav").toDestination();
     drillSlow = new Tone.Player("../assets/sounds/samples/drillSlow.wav").toDestination();
     hiphop = new Tone.Player("../assets/sounds/samples/hiphop.wav").toDestination();
