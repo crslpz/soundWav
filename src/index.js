@@ -18,8 +18,7 @@ let sample5toggle = 0;
 let ctx; 
 Tone.Destination.volume.value = sliderVal;
 Tone.Transport.bpm.value = bpmVal;
-console.log(Tone.Transport.bpm.value)
-// console.log(bpmVal)
+
 
 function sequencer(toggle) {
     //Index - will be used to iterate through each checkbox and will be used to calculate the step variable
@@ -173,12 +172,10 @@ function reset() {
     ctx = new Tone.Context(new AudioContext());
     //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
-        console.log(Tone.context.state)
+        
         if (toggle === false) {
             if (Tone.context.state !== 'running') {
-                console.log(Tone.context.state)
                 Tone.context.resume();
-                console.log(Tone.context.state)
             }
             toggle = true;
             sequencer(toggle)
@@ -219,13 +216,11 @@ function reset() {
 document.getElementById('sequencerVol').addEventListener('change', () => {
     sliderVal = document.getElementById('sequencerVol').value;
     Tone.Destination.volume.value = sliderVal;
-    console.log(sliderVal)
 })
 
 document.getElementById('bpm-Val').addEventListener('change', () =>{
     bpmVal = document.getElementById('bpm-Val').value;
     Tone.Transport.bpm.value = bpmVal;
-    console.log(Tone.Transport.bpm.value)
 })
 
 // These event listeners are responsible for the switching the sound source and img  of the percussion. 
@@ -264,7 +259,6 @@ document.querySelector('.hh-img').addEventListener('click', () =>{
 let sample1 = document.querySelector(`.samples input:nth-child(1)`)
 sample1.addEventListener('click', () =>{
     sample1toggle ++
-    console.log(sample1.checked)
     if (sample1toggle !== 1){
         sample1.checked = false;
         sample1toggle = 0;
@@ -273,7 +267,6 @@ sample1.addEventListener('click', () =>{
 let sample2 = document.querySelector(`.samples input:nth-child(2)`)
 sample2.addEventListener('click', () =>{
     sample2toggle ++
-    console.log(sample2.checked)
     if (sample2toggle !== 1){
         sample2.checked = false;
         sample2toggle = 0;
@@ -282,7 +275,6 @@ sample2.addEventListener('click', () =>{
 let sample3 = document.querySelector(`.samples input:nth-child(3)`)
 sample3.addEventListener('click', () =>{
     sample3toggle ++
-    console.log(sample3.checked)
     if (sample3toggle !== 1){
         sample3.checked = false;
         sample3toggle = 0;
@@ -291,7 +283,6 @@ sample3.addEventListener('click', () =>{
 let sample4 = document.querySelector(`.samples input:nth-child(4)`)
 sample4.addEventListener('click', () =>{
     sample4toggle ++
-    console.log(sample4.checked)
     if (sample4toggle !== 1){
         sample4.checked = false;
         sample4toggle = 0;
@@ -300,19 +291,9 @@ sample4.addEventListener('click', () =>{
 let sample5 = document.querySelector(`.samples input:nth-child(5)`)
 sample5.addEventListener('click', () =>{
     sample5toggle ++
-    console.log(sample5.checked)
     if (sample5toggle !== 1){
         sample5.checked = false;
         sample5toggle = 0;
     }
 })
-
-document.querySelector('.reset-sequencer').addEventListener('click', () =>{
-    reset();
-    console.log('you hit this')
-})
 // end of radio eventlisteners
-
-// document.querySelector('.samples input').addEventListener('click', () => {
-    
-// })
