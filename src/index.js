@@ -1,6 +1,6 @@
 import "./styles/index.scss";
 import * as Tone from "tone";
-let kick1, kick2, hat1, hat2, snare1, snare2, drill, drillChill, drillSlow, hiphop, hiphopChill, hiphopSlow, rap, rapChill, rapSlow, reggaeton, reggaetonChill, reggaetonSlow, rnb, rnbChill, rnbSlow, keys1, keys2, keys3;
+let kick1, kick2, hat1, hat2, snare1, snare2, drill, drillChill, drillSlow, hiphop, hiphopChill, hiphopSlow, rap, rapChill, rapSlow, reggaeton,reggaetonChill, reggaetonSlow, rnb, rnbChill, rnbSlow, keys1, keys2, keys3;
 let sliderVal = document.getElementById('sequencerVol').value
 let bpmVal = document.getElementById('bpm-Val').value
 let toggle = false;
@@ -26,7 +26,8 @@ function sequencer(toggle) {
     if (toggle) {
         Tone.Transport.scheduleRepeat(repeat, '4n')
         Tone.Transport.start();
-        //repeat function gets called once the event listener is triggered. Using scheduleRepeat iterates through the checkboxing using the 4/4 measure. If the input is selected, the audio will play.
+        //repeat function gets called once the event listener is triggered. Using scheduleRepeat iterates through the checkboxing using the 4/4 measure. 
+        //If the input is selected, the audio will play.
         function repeat() {
             let step = index % 32;
             let kickInputs = document.querySelector(`.kick input:nth-child(${step + 1})`);
@@ -170,7 +171,8 @@ function reset() {
     //
 
     ctx = new Tone.Context(new AudioContext());
-    //This will add event listeners to the play button so that when clicked the audio will play. Above the audio context is created to prevent the browser from suspending the audio
+    //This will add event listeners to the play button so that when clicked the audio will play. 
+    //Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
         
         if (toggle === false) {
