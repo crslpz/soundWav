@@ -134,6 +134,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function reset() {
+    ctx = new Tone.Context(new AudioContext());
+    
+    // play button event listeners
+    let img = document.querySelector('.play-pause')
+
     // Percussion
     kick1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/kick1.wav").toDestination();
     kick2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/kick2.wav").toDestination();
@@ -143,10 +148,7 @@ function reset() {
     snare2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/drums/snare2.wav").toDestination();
     //end of Percussion samples
 
-    // play button event listeners
-    let img = document.querySelector('.play-pause')
     //SAMPLES
-    // drill = new Tone.Player("../assets/sounds/samples/drill.wav").toDestination();
     drill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drill.wav").toDestination();
     drillChill = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drillChill.wav").toDestination();
     drillSlow = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/drillSlow.wav").toDestination();
@@ -168,9 +170,9 @@ function reset() {
     keys1 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key1.wav").toDestination();
     keys2 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key2.wav").toDestination();
     keys3 = new Tone.Player("https://crslpz.github.io/soundWav/assets/sounds/samples/key3.wav").toDestination();
-    //
+    //End of key samples
 
-    ctx = new Tone.Context(new AudioContext());
+
     //This will add event listeners to the play button so that when clicked the audio will play. 
     //Above the audio context is created to prevent the browser from suspending the audio
     document.querySelector('.play-pause').addEventListener("mousedown", () => {
