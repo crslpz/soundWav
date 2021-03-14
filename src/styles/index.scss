@@ -3,6 +3,105 @@
     background-repeat: no-repeat;
 }
 
+.module {
+    display: flex;
+    flex-direction: column;
+    margin-left: 9.9%;
+    margin-top: 10%;
+    position: absolute;
+    width: 80%;
+    height: 50vh;
+    border: 8px solid #8173d8;
+    background-color: rgba($color: whitesmoke, $alpha: 0.95);
+    border-radius: 6px;
+}
+.x-button {
+    width: 30px;
+    height: 30px;
+}
+
+.x-button:hover {
+    animation: selected-x 0.5s ease-in-out both;
+}
+
+.rules{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+}
+
+.instructions {
+    width: 50%;
+    height: 100%;
+    border: 2px solid #8173d8;
+    border-radius: 4px;
+}
+
+h2{
+   text-align: center;
+   font-size: 25px;
+   font-family: 'Lucida Handwriting', cursive;
+   font-weight: 700;
+   margin-top: 2%;
+   text-decoration: underline;
+   color:blue,
+}
+
+.sound-files{
+    width: 100%;
+    height: 92%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.ready-up{
+    margin-left: 40%;
+}
+
+li{
+    font-size: 17px;
+    margin-top: 2px;
+}
+
+.sound-files > div {
+    display: flex;
+    align-items: center;
+}
+
+.sound-files p {
+    margin-top: 4%;
+    margin-left: 2%;
+}
+
+.sound-files img{
+    width: 30px;
+    height: 30px;
+    margin-left: 16%;
+    margin-top: 4%;
+    background: indigo;
+    border-radius: 4px;
+}
+
+.sound-files img:hover{
+    animation: icon-increase 0.4s ease-in-out both;
+}
+
+.icon-select{
+    width: 50%;
+    height: 100%;
+    border: 2px solid #8173d8;
+    border-radius: 4px;
+}
+.module-logo{
+    height:80px;
+    width: 300px;
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .logo img {
     height:57px;
     width: 300px;
@@ -136,7 +235,7 @@ a {
 }
 
 .samples input:hover {
-    animation: grow-button 0.4s ease-in-out both;
+    animation: grow-button 0.2s ease-in both;
 }
 
 @keyframes grow-button {
@@ -168,5 +267,19 @@ a {
         background-image: url("../../assets/images/musicNote.png");
         background-repeat: no-repeat;
         background-position: center;
+    }
+}
+
+@keyframes selected-x{
+    to{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@keyframes icon-increase {
+    to{
+        width: 35px;
+        height: 35px;
     }
 }

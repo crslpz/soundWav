@@ -21,15 +21,79 @@
             <a href='https://github.com/crslpz/soundWav'><img src="./assets/images/githubfancy.png"></a>
             <a href= 'https://www.linkedin.com/in/chris-lopez-67aa27201/'><img src="./assets/images/linkedin.png"></a>
             <a href='https://crslpz.github.io/'><img src="./assets/images/selfpage.png"></a>
-            <img src="./assets/images/info.png">
+            <img src="./assets/images/info.png" onclick="disappearToggle()">
         </div>
     </header>
+    <div class= 'module' id = 'module'>
+                <img src= './assets/images/xbutton.png' onclick="disappearToggle()" class= 'x-button'>
+                <img src='./assets/images/soundwavLogo.png' class= 'module-logo'>
+                <div class ='rules'>
+                    <div class= 'instructions' >
+                        <h2>How to Use soundWav</h2>
+                        </br>
+                        <ul>
+                            <li>Choose either a sample listed by genre or create your own melody with chords(you may not choose both).</li>
+                            <li>The sequencer is color coded to match 4/4 time signature.</li>
+                            <li>To create a pattern, click either the navy or burgundy boxes and once complete press the play button.</li>
+                            <li>To switch the kind of drum sound click the icons to the left of the sequencer. They will toggle from white to pink depending on the source. Refer to the icons to the right --></li>
+                            <li>Pressing the Play/Stop button will begin the pattern from the beginning</li>
+                            <li>To effectively use the vibe selector, please stop the sequencer, select the vibe and press play.</li>
+                            <li>If you use the Piano patterns(the last 3 icons on the sequencer) along with a preset sample, the sample will take precedent. To use the paino keys, de-select the sample.</li>
+                            <li>Try the soundbytes by clicking the icons on the right.</li>
+                        </ul>
+                        <button class= 'ready-up' onclick="disappearToggle()" >Get Started</button>
+                    </div>
+                    <div class ='icon-select'>
+                        <h2>Sounds and Icons</h2>
+                        <div class= 'sound-files'>
+                            <div>
+                                <img src = './assets/images/kickDrumImg.png' class= 'kick1'>
+                                <p>Kick Drum 1: Deep sound</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/kickSelected.png' class= 'kick2'>
+                                <p>Kick Drum 2: Punchy sound</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/snareDrumImg.png' class = 'snare1'>
+                                <p>Snare Drum 1: Reverbing sound</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/snareSelected.png' class= 'snare2'>
+                                <p>Snare Drum 2: Sharp sound</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/hhImg.png' class= 'hh1'>
+                                <p>High Hat 1: Closed hat</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/hhSelected.png' class= 'hh2'>
+                                <p>High Hat 2: Open hat</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/pianoImg.png' class= 'p1'>
+                                <p>Piano Chord 1</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/pianoImg.png' class= 'p2'>
+                                <p>Piano Chord 2</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/pianoImg.png' class= 'p3'>
+                                <p>Piano Chord 3</p>
+                            </div>
+                            <div>
+                                <img src = './assets/images/reset.png'>
+                                <p>Resets the Sequencer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <div class="mixer">
         <div id='sample-control-panel'>
             <img src="./assets/images/play.png" 
             class= "play-pause">
-            <!-- <img src="./assets/images/pause.png"> -->
-            
             <div class= 'samples'>
                 <input type= 'radio' id="drill" name= 'sample'>Drill</input>
                 <input type= 'radio' id="hiphop" name="sample">Hip Hop</input>
@@ -277,6 +341,16 @@
         </div>
     </div>
     <script src="./dist/main.js"></script>
+    <script>
+        function disappearToggle() {
+            let module = document.getElementById('module')
+            if (module.style.display === 'none'){
+                module.style.display = 'flex'
+            }else{
+                module.style.display = 'none'
+            }
+        }
+    </script>
 
 </body>
 

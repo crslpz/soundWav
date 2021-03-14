@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function reset() {
     ctx = new Tone.Context(new AudioContext());
-    
+
     // play button event listeners
     let img = document.querySelector('.play-pause')
 
@@ -301,3 +301,33 @@ sample5.addEventListener('click', () =>{
     }
 })
 // end of radio eventlisteners
+
+//eventlisteners for the information module
+document.querySelector('.kick1').addEventListener('click', () =>{
+    kick1.start();
+})
+document.querySelector('.kick2').addEventListener('click', () =>{
+    kick2.start();
+})
+document.querySelector('.snare1').addEventListener('click', () =>{
+    snare1.start();
+})
+document.querySelector('.snare2').addEventListener('click', () =>{
+    snare2.start();
+})
+document.querySelector('.hh1').addEventListener('click', () =>{
+    hat1.start();
+})
+document.querySelector('.hh2').addEventListener('click', () =>{
+    hat2.start();
+})
+document.querySelector('.p1').addEventListener('click', () =>{
+    keys1.start();
+})
+document.querySelector('.p2').addEventListener('click', () =>{
+    keys2.start();
+})
+document.querySelector('.p3').addEventListener('click', () =>{
+    keys3.start();
+})
+// end of module eventlisteners
