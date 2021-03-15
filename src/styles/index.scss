@@ -14,6 +14,8 @@
     border: 8px solid #8173d8;
     background-color: rgba($color: whitesmoke, $alpha: 0.95);
     border-radius: 6px;
+    min-width: 1200px;
+    min-height: 500px;
 }
 .x-button {
     width: 30px;
@@ -147,6 +149,8 @@ li{
     background-color: rgba($color: #8173d8, $alpha: 0.6);
     border: 2px solid white;
     border-radius: 6px;
+    min-width: 1500px;
+    min-height: 300px;
 }
 
 #sample-control-panel{
